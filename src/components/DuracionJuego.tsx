@@ -43,7 +43,7 @@ export function DuracionJuego({ idJuego }: DuracionJuegoProps) {
 
   const estadisticas: EstadisticaDuracion[] = [
     duracion.apurado !== null && {
-      etiqueta: 'Directo',
+      etiqueta: 'Rush',
       valor: duracion.apurado,
       Icono: Zap,
       claseColor: 'border-amber-600/40 bg-amber-600/10 text-amber-400',
@@ -55,7 +55,7 @@ export function DuracionJuego({ idJuego }: DuracionJuegoProps) {
       claseColor: 'border-primary/40 bg-primary/10 text-primary',
     },
     duracion.completo !== null && {
-      etiqueta: '100%',
+      etiqueta: 'Completista',
       valor: duracion.completo,
       Icono: Trophy,
       claseColor: 'border-emerald-600/40 bg-emerald-600/10 text-emerald-400',

@@ -89,9 +89,11 @@ export function TimelineEntry({ juego }: TimelineEntryProps) {
             </p>
           )}
 
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 pt-1 text-xs text-muted-foreground">
-            <span>Jugado: {formatearPeriodoJuego(juego.fechaInicio, juego.fechaFin)}</span>
-          </div>
+          {juego.fechaInicio && (
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 pt-1 text-xs text-muted-foreground">
+              <span>Jugado: {formatearPeriodoJuego(juego.fechaInicio, juego.fechaFin)}</span>
+            </div>
+          )}
         </div>
       </div>
     </article>

@@ -217,11 +217,15 @@ export default function GameDetail() {
                   <p className="text-sm leading-relaxed text-muted-foreground">{juegoLocal.reseña}</p>
                 )}
 
-                <p className="text-xs text-muted-foreground">
-                  Jugado: {formatearPeriodoJuego(juegoLocal.fechaInicio, juegoLocal.fechaFin)}
-                  {juegoLocal.vecesRejugado > 0 &&
-                    ` · Rejugado ${juegoLocal.vecesRejugado} ${juegoLocal.vecesRejugado === 1 ? 'vez' : 'veces'}`}
-                </p>
+                {(juegoLocal.fechaInicio || juegoLocal.vecesRejugado > 0) && (
+                  <p className="text-xs text-muted-foreground">
+                    {juegoLocal.fechaInicio &&
+                      `Jugado: ${formatearPeriodoJuego(juegoLocal.fechaInicio, juegoLocal.fechaFin)}`}
+                    {juegoLocal.fechaInicio && juegoLocal.vecesRejugado > 0 && ' · '}
+                    {juegoLocal.vecesRejugado > 0 &&
+                      `Rejugado ${juegoLocal.vecesRejugado} ${juegoLocal.vecesRejugado === 1 ? 'vez' : 'veces'}`}
+                  </p>
+                )}
               </section>
             )}
 

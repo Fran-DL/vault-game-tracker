@@ -23,7 +23,7 @@ export interface Juego {
   /** 1-10, null si no fue puntuado */
   calificacion: number | null
   reseña: string
-  /** Formato YYYY-MM */
+  /** Formato YYYY-MM, cadena vacía si no fue definida por el usuario */
   fechaInicio: string
   /** Formato YYYY-MM, null si está en curso */
   fechaFin: string | null

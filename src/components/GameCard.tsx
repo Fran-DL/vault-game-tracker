@@ -1,7 +1,7 @@
+import { useNavigate } from 'react-router-dom'
 import { Play } from 'lucide-react'
 import type { Juego } from '@/types'
 import { useLibraryStore } from '@/store'
-import { abrirEdicionJuego } from '@/store/useGameEditDialogStore'
 import { Button } from '@/components/ui/button'
 
 interface GameCardProps {
@@ -9,20 +9,25 @@ interface GameCardProps {
 }
 
 /**
- * Tarjeta de juego usada en el grid de Backlog. Clickear la tarjeta abre
- * el modal de edición; el botón "Empezar" corta la propagación para no
- * disparar también la apertura del modal.
+ * Tarjeta de juego usada en el grid de Backlog. Clickear la tarjeta navega
+ * a la vista detallada (`/juego/:id`); el botón "Empezar" corta la
+ * propagación para no disparar también la navegación.
  */
 export function GameCard({ juego }: GameCardProps) {
+  const navigate = useNavigate()
   const empezarJuego = useLibraryStore((state) => state.empezarJuego)
+
+  function manejarClickTarjeta() {
+    navigate(`/juego/${juego.id}`)
+  }
 
   return (
     <article
       role="button"
       tabIndex={0}
-      onClick={() => abrirEdicionJuego(juego.id)}
+      onClick={manejarClickTarjeta}
       onKeyDown={(e) => {
-        if (e.key === 'Enter' || e.key === ' ') abrirEdicionJuego(juego.id)
+        if (e.key === 'Enter' || e.key === ' ') manejarClickTarjeta()
       }}
       className="group flex cursor-pointer flex-col overflow-hidden rounded-lg border border-border bg-card shadow-sm transition-all hover:scale-[1.02] hover:shadow-md"
     >

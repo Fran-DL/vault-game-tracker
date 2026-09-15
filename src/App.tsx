@@ -4,6 +4,7 @@ import { Navbar } from '@/components/Navbar'
 import { GameEditDialog } from '@/components/GameEditDialog'
 import Home from '@/components/Home'
 import Backlog from '@/components/Backlog'
+import Coleccion from '@/components/Coleccion'
 import Top100 from '@/components/Top100'
 import Perfil from '@/components/Perfil'
 import Dev from '@/components/Dev'
@@ -26,6 +27,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/backlog" element={<Backlog />} />
+        <Route path="/coleccion" element={<Coleccion />} />
         <Route path="/top100" element={<Top100 />} />
         <Route path="/perfil" element={<Perfil />} />
         <Route path="/configuracion" element={<Configuracion />} />

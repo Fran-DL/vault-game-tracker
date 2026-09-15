@@ -123,10 +123,6 @@ export function GameEditDialog() {
 
   function manejarGuardar() {
     if (!juego) return
-    if (!fechaInicio) {
-      toast.error('La fecha de inicio es obligatoria.')
-      return
-    }
 
     actualizarJuego(juego.id, {
       estado,
@@ -259,7 +255,6 @@ export function GameEditDialog() {
                   type="month"
                   value={fechaInicio}
                   onChange={(e) => setFechaInicio(e.target.value)}
-                  required
                 />
               </div>
               <div className="space-y-1.5">
